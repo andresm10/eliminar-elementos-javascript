@@ -1,0 +1,261 @@
+﻿<!--
+	Este codigo fuente es mayoritariamente autoria de:
+    	http://codigoweblibre.wordpress.com
+        http://codigoweblibre.comli.com
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Crear Elementos</title>
+	<script type="text/javascript">
+		var id ="", id_link="", div="";
+		
+		function crearLinkEliminar(div_append, id_elemento){
+			id_link = "id_link_"+div_append;			
+			var crear_enlace = document.createElement('a');
+			crear_enlace.setAttribute('id',id_link);
+			crear_enlace.setAttribute('href','javascript:eliminarElemento("'+id_elemento+'","'+id_link+'");');
+			texto_enlace = document.createTextNode('Eliminar');
+			crear_enlace.appendChild(texto_enlace);
+			document.getElementById(div_append).appendChild(crear_enlace);
+		}
+		
+		function crearCampoTexto(){
+			id = "id_campo_texto";
+			div="campos";
+			campotTexto = document.createElement('input');
+			campotTexto.type = "text";
+			campotTexto.value = "http://codigoweblibre.comli.com";
+			campotTexto.size = "36";
+			campotTexto.name = "name_campo_texto";
+			campotTexto.id = id;															
+			document.getElementById(div).appendChild(campotTexto);			
+			crearLinkEliminar(div, id);			
+		}
+		
+		function crearLabel(){
+			id = "id_label";
+			div = "labels";
+			var label = document.createElement("label");
+			label.setAttribute("id",id);
+			labeltext = document.createTextNode("http://codigoweblibre.wordpress.com");
+			label.appendChild(labeltext);
+			document.getElementById(div).appendChild(label);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearTextArea(){
+			id = "id_textarea";
+			div = "textAreas";
+			var textArea = document.createElement("textarea");
+			textArea.setAttribute("id",id);
+			valorTextArea = document.createTextNode("http://codigoweblibre.wordpress.com");
+			textArea.appendChild(valorTextArea);
+			document.getElementById(div).appendChild(textArea);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearBotones(){
+			id = "id_boton";
+			div = "botones";
+			botones = document.createElement('input');
+			botones.type = "button";
+			botones.name = "name_boton";
+			botones.id = id;
+			botones.value = "http://codigoweblibre.comli.com";
+			botones.size = "35";
+			document.getElementById(div).appendChild(botones);
+			crearLinkEliminar(div, id);
+		}		
+		
+		function crearBotonSubmit(){
+			id = "id_boton_submit";
+			div = "botones_submit";
+			botones_submit = document.createElement('input');
+			botones_submit.type = "submit";
+			botones_submit.name = "name_boton_submit";
+			botones_submit.id = id;
+			botones_submit.value = "http://codigoweblibre.comli.com";
+			botones_submit.size = "35";
+			document.getElementById(div).appendChild(botones_submit);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearCheckBoxes(){
+			id = "id_checkbox";
+			div = "checkboxes";
+			checkboxes = document.createElement('input');
+			checkboxes.type = "checkbox";
+			checkboxes.name = id;
+			checkboxes.id = "id_checkbox";
+			checkboxes.value = "http://codigoweblibre.comli.com";
+			document.getElementById(div).appendChild(checkboxes);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearSelect(){
+			id = "id_select";
+			div = "selects";
+			var nuevoSelect = document.createElement("select"); //creo el nodo del select            
+            nuevoSelect.setAttribute("name", "name_select"); //añado el nombre al select
+			nuevoSelect.setAttribute("id", "id_select"); //añado el nombre al select
+			
+            var nuevoOption = document.createElement("option"); //creo el nodo option            
+			var nuevoOption1 = document.createElement("option"); //creo el nodo option            
+			var nuevoOption2 = document.createElement("option"); //creo el nodo option            
+            var nodoTextoOption = document.createTextNode("http://codigoweblibre.comli.com"); //creo un nodo texto para el option
+			var nodoTextoOption1 = document.createTextNode("http://codigoweblibre.wordpress.com"); //creo un nodo texto para el option
+			var nodoTextoOption2 = document.createTextNode("canal youtube: codigoweblibre"); //creo un nodo texto para el option
+			
+            nuevoOption.appendChild(nodoTextoOption); //añado el nodo texto al nodo option
+			nuevoOption1.appendChild(nodoTextoOption1); //añado el nodo texto al nodo option
+			nuevoOption2.appendChild(nodoTextoOption2); //añado el nodo texto al nodo option
+			
+            nuevoSelect.appendChild(nuevoOption); //añado el nodo option al nodo select
+			nuevoSelect.appendChild(nuevoOption1); //añado el nodo option al nodo select
+			nuevoSelect.appendChild(nuevoOption2); //añado el nodo option al nodo select
+			
+            var cuerpoRef = document.getElementsByTagName("body")[0]; //saco el nodo en el que quiero colgarlo
+			document.getElementById(div).appendChild(nuevoSelect);			
+			/*CITO LA FUENTE DE DONDE SAQUE EL EJEMPLO PARA ESTA FUNCION:
+				http://www.forosdelweb.com/f13/solucion-anadir-select-dinamicamente-474632/
+				LA SOLUCION LA PRESENTA EL USUARIO: MaBoRaK	 
+				SIMPLEMENTE FUEN ADAPTADO A ESTE EJEMPLO
+			*/
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearRadio(){
+			id = "id_radio";
+			div = "radios";
+			radios = document.createElement('input');
+			radios.type = "radio";
+			radios.name = "name_radio";
+			radios.id = id;
+			radios.value = "http://codigoweblibre.comli.com";
+			document.getElementById(div).appendChild(radios);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearPassword(){
+			id = "id_password";
+			div = "passwords";
+			campoPassword = document.createElement('input');
+			campoPassword.type = "password";
+			campoPassword.name = "name_password";
+			campoPassword.id = id;
+			campoPassword.value = "http://codigoweblibre.comli.com";
+			campoPassword.size = "40";
+			document.getElementById(div).appendChild(campoPassword);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearColor(){
+			id = "id_color";
+			div = "colores";
+			colors = document.createElement('input');
+			colors.type = "color";
+			colors.name = "name_color";
+			colors.id = id;			
+			colors.size = "40";
+			document.getElementById(div).appendChild(colors);
+			crearLinkEliminar(div, id);
+		}
+		
+		function crearFile(){
+			id = "id_file";
+			div = "files";
+			files = document.createElement('input');
+			files.type = "file";
+			files.name = "name_file";
+			files.id = id;
+			document.getElementById(div).appendChild(files);
+			crearLinkEliminar(div, id);
+		}
+    	/*---------------------------------------------------------------------------------------------------------------------*/		
+	function eliminarElemento(id_elemento, id_link){
+		elementoEliminar = document.getElementById(id_elemento);
+		link_eliminar = document.getElementById(id_link);
+		if (elementoEliminar && id_link){
+			elementoPadre = elementoEliminar.parentNode;
+			elementoPadre.removeChild(elementoEliminar);
+			
+			elementoPadreLink = link_eliminar.parentNode;
+			elementoPadreLink.removeChild(link_eliminar);
+			alert("Eliminado correctamente.");
+		} else {
+			alert("El elemento selecionado no existe, \nno se pudo eliminar.");
+		}
+	}
+    </script>
+    <style>
+    	.estilo_div{
+			background-color:#CCC; border-radius:15px; width:300px; height:220px; float:left; margin: 10px ;
+		}
+		.menu{
+			background-color:#FFF; border-radius:15px; width:300px; height:220px; float:left; margin: 10px ;
+		}
+		body{
+			font-family:Verdana, Geneva, sans-serif;
+			font-size:13px;
+		}
+    </style>
+</head>
+<body background="img/wallpaper.png">
+	<form>
+    	<h1>
+            <a style="color:#FFF;" target="_blank" href="http://codigoweblibre.wordpress.com/">http://codigoweblibre.wordpress.com/</a><br>
+            <a style="color:#FFF;" target="_blank" href="http://codigoweblibre.comli.com">codigoweblibre.comli.com</a><br>
+            <label style="color:#FFF;">Youtube: codigoweblibre</label>
+        </h1>
+        <div class="menu">
+            <a href="javascript:crearCampoTexto();">Crear Campo</a><br>
+            <a href="javascript:crearLabel();">Crear Label</a><br>
+            <a href="javascript:crearTextArea();">Crear TextArea</a><br>
+            <a href="javascript:crearBotones();">Crear Button (Button)</a><br>
+            <a href="javascript:crearBotonSubmit();">Crear Button (Submit)</a><br>
+            <a href="javascript:crearCheckBoxes();">Crear CheckBoxes</a><br>
+            <a href="javascript:crearSelect();">Crear Select</a><br>
+            <a href="javascript:crearRadio();">Crear Radio</a><br>
+            <a href="javascript:crearPassword();">Crear Password</a><br>
+            <a href="javascript:crearColor();">Crear Color</a><br>
+            <a href="javascript:crearFile();">Crear File</a>
+        </div>
+        <div id="campos" class="estilo_div">
+            <h3>Campos de Texto - text</h3>
+        </div>
+        <div id="labels" class="estilo_div">
+            <h3>Label</h3>
+        </div>
+        <div id="textAreas" class="estilo_div">
+            <h3>TextArea</h3>
+        </div>
+        <div id="botones" class="estilo_div">
+            <h3>Botones - Button</h3>
+        </div>
+        <div id="botones_submit" class="estilo_div">
+            <h3>Botones - Submit</h3>
+        </div>
+        <div id="checkboxes" class="estilo_div">
+            <h3>Checkbox</h3>
+        </div>
+        <div id="selects" class="estilo_div">
+            <h3>Select</h3>
+        </div>
+        <div id="radios" class="estilo_div">
+            <h3>Radio</h3>
+        </div>
+        <div id="passwords" class="estilo_div">
+            <h3>Password</h3>
+        </div>
+        <div id="colores" class="estilo_div">
+            <h3>Color - Solo Chrome</h3>
+        </div>
+        <div id="files" class="estilo_div">
+            <h3>File</h3>
+        </div>        
+    </form>
+</body>
+</html>
